@@ -3,6 +3,10 @@ from django.contrib import admin
 # Register your models here.
 from .models import Question, Choice
 
+admin.site.site_header = 'Polling Administration'
+admin.site.site_title = 'Polling Admin'
+admin.site.index_title = 'Welcome to the Polling Admin Area!'
+
 
 class ChoiceInline(admin.TabularInline):
     model = Choice
