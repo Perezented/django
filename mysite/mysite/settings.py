@@ -11,16 +11,25 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 from pathlib import Path
 import os
+from os.path import join, dirname
+from dotenv import load_dotenv
 
+# Create .env file path.
+dotenv_path = join(dirname(__file__), '.env')
+
+# Load file from the path.
+load_dotenv(dotenv_path)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+SECRET_PASSWORD = os.getenv('UPDATED_PASSWORD')
+# print('here it is: ', os.environ)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('UPDATED_PASSWORD')
+SECRET_KEY = SECRET_PASSWORD
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
